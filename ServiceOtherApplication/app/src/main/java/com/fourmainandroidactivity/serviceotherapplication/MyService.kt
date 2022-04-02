@@ -1,11 +1,11 @@
-package com.fourmainandroidactivity.serviceapplication
+package com.fourmainandroidactivity.serviceotherapplication
 
 import android.app.Service
 import android.content.Intent
 import android.os.*
 import android.widget.Toast
 
-class HelloService : Service() {
+class MyService : Service() {
 
     private var serviceLooper: Looper? = null
     private var serviceHandler: ServiceHandler? = null

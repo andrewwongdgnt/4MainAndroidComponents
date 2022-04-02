@@ -1,4 +1,4 @@
-package com.fourmainandroidactivity.serviceapplication
+package com.fourmainandroidactivity.serviceotherapplication
 
 import org.junit.Test
 

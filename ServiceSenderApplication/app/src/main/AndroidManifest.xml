@@ -19,5 +19,8 @@
             </intent-filter>
         </activity>
     </application>
+    <queries>
+        <package android:name="com.fourmainandroidactivity.serviceapplication" />
+    </queries>
 
 </manifest>
