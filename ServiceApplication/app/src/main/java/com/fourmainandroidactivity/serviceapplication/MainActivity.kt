@@ -1,9 +1,9 @@
-package com.fourmainandroidactivity.servicesenderapplication
+package com.fourmainandroidactivity.serviceapplication
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.fourmainandroidactivity.servicesenderapplication.databinding.ActivityMainBinding
+import com.fourmainandroidactivity.serviceapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater).run {
             btn.setOnClickListener {
                 val i = Intent().apply {
-                    setClassName("com.fourmainandroidactivity.serviceotherapplication", "com.fourmainandroidactivity.serviceapplication.MyService")
+                    setClassName("com.fourmainandroidactivity.serviceotherapplication", "com.fourmainandroidactivity.serviceotherapplication.MyService")
                 }
                 startForegroundService(i)
             }

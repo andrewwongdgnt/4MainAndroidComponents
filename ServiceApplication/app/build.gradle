@@ -7,7 +7,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.fourmainandroidactivity.servicesenderapplication"
+        applicationId "com.fourmainandroidactivity.serviceapplication"
         minSdk 26
         targetSdk 31
         versionCode 1
