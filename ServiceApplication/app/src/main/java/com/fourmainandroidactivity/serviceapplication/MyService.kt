@@ -1,4 +1,4 @@
-package com.fourmainandroidactivity.serviceotherapplication
+package com.fourmainandroidactivity.serviceapplication
 
 import android.app.Service
 import android.content.Intent
@@ -44,7 +44,7 @@ class MyService : Service() {
     }
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
-        Toast.makeText(this, "other service starting", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "local service starting", Toast.LENGTH_SHORT).show()
 
         // For each start request, send a message to start a job and deliver the
         // start ID so we know which request we're stopping when we finish the job
@@ -63,6 +63,6 @@ class MyService : Service() {
     }
 
     override fun onDestroy() {
-        Toast.makeText(this, "other service done", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "local service done", Toast.LENGTH_SHORT).show()
     }
 }

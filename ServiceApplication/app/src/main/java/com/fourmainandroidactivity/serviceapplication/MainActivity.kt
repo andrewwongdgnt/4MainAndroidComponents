@@ -17,6 +17,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 startForegroundService(i)
             }
+            btn2.setOnClickListener {
+                Intent(this@MainActivity, MyService::class.java).also { intent ->
+                    startService(intent)
+                }            }
             setContentView(root)
         }
     }
