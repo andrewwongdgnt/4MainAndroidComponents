@@ -11,16 +11,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         ActivityMainBinding.inflate(layoutInflater).run {
-            btn.setOnClickListener {
+
+            localServiceBtn.setOnClickListener {
+                Intent(this@MainActivity, MyService::class.java).also { intent ->
+                    startService(intent)
+                }
+            }
+            otherServiceBtn.setOnClickListener {
                 val i = Intent().apply {
                     setClassName("com.fourmainandroidactivity.serviceotherapplication", "com.fourmainandroidactivity.serviceotherapplication.MyService")
                 }
                 startForegroundService(i)
             }
-            btn2.setOnClickListener {
-                Intent(this@MainActivity, MyService::class.java).also { intent ->
-                    startService(intent)
-                }            }
+
             setContentView(root)
         }
     }
