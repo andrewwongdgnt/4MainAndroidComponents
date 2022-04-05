@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.fourmainandroidactivity.serviceapplication">
+    package="com.fourmainandroidcomponents.serviceapplication">
 
     <queries>
-        <package android:name="com.fourmainandroidactivity.serviceotherapplication" />
+        <package android:name="com.fourmainandroidcomponents.serviceotherapplication" />
     </queries>
 
     <application
@@ -14,12 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ServiceApplication">
         <service
-            android:name=".MyService"
+            android:name="com.fourmainandroidcomponents.serviceapplication.MyService"
             android:enabled="true"
             android:exported="false" />
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.fourmainandroidcomponents.serviceapplication.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

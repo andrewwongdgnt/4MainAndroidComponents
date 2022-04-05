@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.fourmainandroidactivity.serviceotherapplication">
+    package="com.fourmainandroidcomponents.serviceotherapplication">
 
     <application
         android:allowBackup="true"
@@ -10,8 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ServiceOtherApplication">
         <service
-            android:name="com.fourmainandroidactivity.serviceotherapplication.MyService"
-            android:process="com.fourmainandroidactivity.serviceotherapplication.remote"
+            android:name="com.fourmainandroidcomponents.serviceotherapplication.MyService"
+            android:process="com.fourmainandroidcomponents.serviceotherapplication.remote"
             android:enabled="true"
             android:exported="true" />
     </application>
