@@ -21,4 +21,6 @@
 
     </application>
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="com.fourmainandroidcomponents.READ_PERMISSION"/>
+    <uses-permission android:name="com.fourmainandroidcomponents.WRITE_PERMISSION"/>
 </manifest>
