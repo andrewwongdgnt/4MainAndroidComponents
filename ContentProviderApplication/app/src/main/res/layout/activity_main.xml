@@ -27,6 +27,33 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
 
+        <Button
+            android:id="@+id/add_custom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Custom"
+            app:layout_constraintTop_toBottomOf="@id/get_custom"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Button
+            android:id="@+id/update_custom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update Custom"
+            app:layout_constraintTop_toBottomOf="@id/add_custom"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Button
+            android:id="@+id/delete_custom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete Custom"
+            app:layout_constraintTop_toBottomOf="@id/update_custom"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

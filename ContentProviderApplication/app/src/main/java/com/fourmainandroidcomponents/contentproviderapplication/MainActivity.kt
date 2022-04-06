@@ -1,10 +1,12 @@
 package com.fourmainandroidcomponents.contentproviderapplication
 
 import android.Manifest
+import android.content.ContentValues
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.fourmainandroidcomponents.contentproviderapplication.databinding.ActivityMainBinding
@@ -13,8 +15,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if( applicationContext.checkSelfPermission( Manifest.permission.READ_CONTACTS ) != PackageManager.PERMISSION_GRANTED )
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_CONTACTS), 1);
+        if (applicationContext.checkSelfPermission(Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED)
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_CONTACTS), 1)
+
 
         ActivityMainBinding.inflate(layoutInflater).run {
 
@@ -48,11 +51,11 @@ class MainActivity : AppCompatActivity() {
 
             getCustom.setOnClickListener {
                 val cursor = contentResolver.query(
-                    Uri.parse("content://com.fourmainandroidcomponents.contentproviderotherapplication/xxx" ),
-                    arrayOf(ContactsContract.Contacts.DISPLAY_NAME_PRIMARY, ContactsContract.Contacts.HAS_PHONE_NUMBER),
-                    null,
-                    null,
-                    "${ContactsContract.Contacts.DISPLAY_NAME_PRIMARY} ASC"
+                    Uri.parse("content://com.fourmainandroidcomponents.contentproviderotherapplication/xxx"),
+                    arrayOf("Col4", "Col5", "Col6"),
+                    "ColY = ?",
+                    arrayOf("Y"),
+                    "Col4 ASC"
                 )
 
                 cursor?.apply {
@@ -76,6 +79,30 @@ class MainActivity : AppCompatActivity() {
 
             }
 
+            addCustom.setOnClickListener {
+                val uri = contentResolver.insert(Uri.parse("content://com.fourmainandroidcomponents.contentproviderotherapplication/xxx"), ContentValues().apply {
+                    put("Col1", "ValA")
+                    put("Col2", "ValB")
+                    put("Col3", "ValC")
+                })
+
+                SimpleDialogFragment.newInstance(arrayListOf(uri.toString())).show(supportFragmentManager, SimpleDialogFragment.TAG)
+            }
+
+            updateCustom.setOnClickListener {
+                val updatedRows = contentResolver.update(Uri.parse("content://com.fourmainandroidcomponents.contentproviderotherapplication/xxx"), ContentValues().apply {
+                    put("Col1", "ValA")
+                    put("Col2", "ValB")
+                    put("Col3", "ValC")
+                }, "ColX = ?", arrayOf("X"))
+
+                SimpleDialogFragment.newInstance(arrayListOf(updatedRows.toString())).show(supportFragmentManager, SimpleDialogFragment.TAG)
+            }
+
+            deleteCustom.setOnClickListener {
+                val updatedRows = contentResolver.delete(Uri.parse("content://com.fourmainandroidcomponents.contentproviderotherapplication/xxx"), "ColZ = ?", arrayOf("Z"))
+                SimpleDialogFragment.newInstance(arrayListOf(updatedRows.toString())).show(supportFragmentManager, SimpleDialogFragment.TAG)
+            }
 
             setContentView(root)
         }
