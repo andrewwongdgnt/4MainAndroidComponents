@@ -1,42 +1,51 @@
 package com.fourmainandroidcomponents.contentproviderotherapplication
 
+import android.R.id
 import android.content.ContentProvider
+import android.content.ContentResolver
+import android.content.ContentUris
 import android.content.ContentValues
 import android.database.Cursor
+import android.database.MatrixCursor
 import android.net.Uri
+import android.widget.Toast
+
 
 class MyContentProvider : ContentProvider() {
 
     override fun delete(uri: Uri, selection: String?, selectionArgs: Array<String>?): Int {
-        TODO("Implement this to handle requests to delete one or more rows")
+        return 3
     }
 
     override fun getType(uri: Uri): String? {
-        TODO(
-            "Implement this to handle requests for the MIME type of the data" +
-                    "at the given URI"
-        )
+        return "${ContentResolver.CURSOR_DIR_BASE_TYPE}/vnd.de.openminds.lentitems_items.xxx"
     }
 
     override fun insert(uri: Uri, values: ContentValues?): Uri? {
-        TODO("Implement this to handle requests to insert a new row.")
+        return ContentUris.withAppendedId(uri, 2)
     }
 
     override fun onCreate(): Boolean {
-        TODO("Implement this to initialize your content provider on startup.")
+        return true
     }
 
     override fun query(
         uri: Uri, projection: Array<String>?, selection: String?,
         selectionArgs: Array<String>?, sortOrder: String?
-    ): Cursor? {
-        TODO("Implement this to handle query requests from clients.")
+    ): Cursor {
+
+        val  cursor = MatrixCursor( arrayOf("Col1", "Col2", "Col3"))
+
+        (1..10).forEach { i ->
+            cursor.addRow(arrayOf("A$i", "B$i", "C$i"))
+        }
+        return cursor
     }
 
     override fun update(
         uri: Uri, values: ContentValues?, selection: String?,
         selectionArgs: Array<String>?
     ): Int {
-        TODO("Implement this to handle requests to update one or more rows.")
+        return 5
     }
 }

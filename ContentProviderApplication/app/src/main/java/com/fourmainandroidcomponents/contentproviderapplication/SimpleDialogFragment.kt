@@ -8,15 +8,15 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 
 
-class ContactsDialogFragment : DialogFragment() {
+class SimpleDialogFragment : DialogFragment() {
 
 
     companion object {
-        const val TAG = "ContactsDialogFragment"
+        const val TAG = "SimpleDialogFragment"
 
         private const val KEY_VALUES = "KEY_VALUES"
 
-        fun newInstance(values: ArrayList<String>) = ContactsDialogFragment().apply {
+        fun newInstance(values: ArrayList<String>) = SimpleDialogFragment().apply {
             arguments = Bundle().apply {
                 putStringArrayList(KEY_VALUES, values)
             }

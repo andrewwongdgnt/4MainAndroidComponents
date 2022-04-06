@@ -28,8 +28,8 @@ class MainActivity : AppCompatActivity() {
                 )
 
                 cursor?.apply {
-                    val nameIndex: Int = getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME_PRIMARY)
-                    val hasPhoneNumberIndex: Int = getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER)
+                    val nameIndex = getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME_PRIMARY)
+                    val hasPhoneNumberIndex = getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER)
 
                     val list = ArrayList(generateSequence { if (moveToNext()) this else null }
                         .map {
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
                         }
                         .toList())
 
-                    ContactsDialogFragment.newInstance(list).show(supportFragmentManager, ContactsDialogFragment.TAG)
+                    SimpleDialogFragment.newInstance(list).show(supportFragmentManager, SimpleDialogFragment.TAG)
 
                     close()
                 }
@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
 
             getCustom.setOnClickListener {
                 val cursor = contentResolver.query(
-                    Uri.parse("content://com.fourmainandroidcomponents.MyContentProvider.AUTHORITY/xxx" ),
+                    Uri.parse("content://com.fourmainandroidcomponents.contentproviderotherapplication/xxx" ),
                     arrayOf(ContactsContract.Contacts.DISPLAY_NAME_PRIMARY, ContactsContract.Contacts.HAS_PHONE_NUMBER),
                     null,
                     null,
@@ -56,18 +56,20 @@ class MainActivity : AppCompatActivity() {
                 )
 
                 cursor?.apply {
-//                    val nameIndex: Int = getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME_PRIMARY)
-//                    val hasPhoneNumberIndex: Int = getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER)
-//
-//                    val list = ArrayList(generateSequence { if (moveToNext()) this else null }
-//                        .map {
-//                            val name = getString(nameIndex)
-//                            val hasPhoneNumber = getString(hasPhoneNumberIndex)
-//                            "name: $name, hasPhoneNumber: $hasPhoneNumber"
-//                        }
-//                        .toList())
-//
-//                    ContactsDialogFragment.newInstance(list).show(supportFragmentManager, ContactsDialogFragment.TAG)
+                    val col1Index = getColumnIndex("Col1")
+                    val col2Index = getColumnIndex("Col2")
+                    val col3Index = getColumnIndex("Col3")
+
+                    val list = ArrayList(generateSequence { if (moveToNext()) this else null }
+                        .map {
+                            val val1 = getString(col1Index)
+                            val val2 = getString(col2Index)
+                            val val3 = getString(col3Index)
+                            "val1: $val1, val2: $val2, val3: $val3"
+                        }
+                        .toList())
+
+                    SimpleDialogFragment.newInstance(list).show(supportFragmentManager, SimpleDialogFragment.TAG)
 
                     close()
                 }
